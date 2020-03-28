@@ -1,0 +1,2 @@
+class KadaiTasklist < ApplicationRecord
+end
