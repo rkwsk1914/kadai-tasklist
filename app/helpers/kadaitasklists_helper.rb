@@ -1,0 +1,2 @@
+module KadaitasklistsHelper
+end
