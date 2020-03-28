@@ -44,7 +44,7 @@ class TasksController < ApplicationController
     @tasklist.destroy
     
     flash[:success] = "タスクを削除しました。"
-    redirect_to kadaitasklist_url
+    redirect_to tasks_url
   end
 end
 
