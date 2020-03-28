@@ -46,7 +46,6 @@ class TasksController < ApplicationController
     flash[:success] = "タスクを削除しました。"
     redirect_to tasks_url
   end
-end
 
   private
   
@@ -55,3 +54,4 @@ end
     #Kadaitaskモデルのフォームから得られるデータのうち、contentカラムだけ選択
     params.require(:task).permit(:content)
   end
+end
