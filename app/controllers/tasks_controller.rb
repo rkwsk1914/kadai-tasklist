@@ -52,6 +52,6 @@ class TasksController < ApplicationController
   def task_params
     
     #Kadaitaskモデルのフォームから得られるデータのうち、contentカラムだけ選択
-    params.require(:task).permit(:content)
+    params.require(:task).permit(:content, :status)
   end
 end
