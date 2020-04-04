@@ -1,9 +1,0 @@
-<h1>ユーザーリスト</h1>
-
-<ul>
-  <% @users.each do |users| %>
-  <li><%= link_to users.id, users %> name[ <%= link_to users.name, users %> ]  email[ <%= users.email %> ]</li>
-  <% end %>
-</ul>
-
-<%= link_to 'top', root_url %>
