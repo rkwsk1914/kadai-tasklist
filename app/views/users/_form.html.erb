@@ -1,16 +1,17 @@
 <%= form_with(model: @user, local:true)do |form|%>
+  <%= render 'layouts/error_messages', model: form.object %>
 
   <%= form.label :name, 'Your Name' %>
   <%= form.text_field :name %><br>
 
   <%= form.label :email, 'Mail Address' %>
-  <%= form.text_field :email %><br>
+  <%= form.email_field :email %><br>
   
   <%= form.label :password, 'Password' %>
-  <%= form.text_field :password %><br>
+  <%= form.password_field :password %><br>
   
   <%= form.label :password_confirmation, 'Confirmation' %>
-  <%= form.text_field :password_confirmation %><br>
+  <%= form.password_field :password_confirmation %><br>
   
   
   <%= form.submit 'Sign Up' %>

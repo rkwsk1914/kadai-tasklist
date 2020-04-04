@@ -18,7 +18,8 @@ class UsersController < ApplicationController
     
     if @user.save
       flash[:success] = "Hello " + @user.name
-      redirect_to @user
+      session[:user_id] = @user.id
+      redirect_to root_url
     else
       flash.now[:danger] = "Registration failed"
      render :new

@@ -7,10 +7,11 @@ class SessionsController < ApplicationController
     password = params[:session][:password]
     
     if login(email,password)
-      #flash[:success] = "Hello" #+ params[:session][:name]
-      redirect_to @user
+      @user = User.find_by(email: params[:session][:email])
+      flash[:success] = "Hello" + @user.name
+      redirect_to root_url
     else
-      #flash.now[:danger] = "Miss Login"
+      flash.now[:danger] = "Miss Login: Wrong email or password"
       render :new
     end
   end

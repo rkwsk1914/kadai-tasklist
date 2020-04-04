@@ -1,5 +1,5 @@
 module SessionsHelper
-  def check_login
+  def logged_in?
     !!current_user
   end
   
@@ -7,4 +7,3 @@ module SessionsHelper
     @current_user ||= User.find_by(id: session[:user_id])
   end
 end
-
