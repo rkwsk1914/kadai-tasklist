@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   
   def require_user_logged_in
     unless logged_in?
-      redirect_to controller: :toppages, action: :index
+      redirect_to controller: :sessions, action: :new
     end
   end
 end
