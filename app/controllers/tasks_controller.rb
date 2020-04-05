@@ -3,14 +3,10 @@ class TasksController < ApplicationController
   before_action :correct_user, only: [:show, :update, :destroy, :edit]
   
   def index
-    if logged_in?
-      @tasklist = current_user.tasks.build  # form_with 用
       @tasklist = current_user.tasks.all.page(params[:page])
-    end
   end
 
   def show
-    @tasklist = Task.find(params[:id])
   end
 
   def new
@@ -30,11 +26,9 @@ class TasksController < ApplicationController
   end
 
   def edit
-    @tasklist = Task.find(params[:id])
   end
 
   def update
-    @tasklist = Task.find(params[:id])
     
     if @tasklist.update(task_params)
       flash[:success] = "タスクを更新しました。"
@@ -46,7 +40,6 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    @tasklist = Task.find(params[:id])
     @tasklist.destroy
     
     flash[:success] = "タスクを削除しました。"
@@ -56,7 +49,6 @@ class TasksController < ApplicationController
   private
   
   def task_params
-    
     #Kadaitaskモデルのフォームから得られるデータのうち、contentカラムだけ選択
     params.require(:task).permit(:content, :status)
   end
